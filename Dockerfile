@@ -9,5 +9,4 @@ RUN apk update && apk upgrade && \
 RUN go mod download
 
 RUN go build -o bin/prweb cmd/prweb/main.go
-EXPOSE 8080
 ENTRYPOINT [ "bin/prweb" ]
