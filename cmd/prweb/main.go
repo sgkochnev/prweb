@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"prweb/internal/api/jokes"
 	"prweb/internal/config"
 	"prweb/internal/handler"
 
@@ -18,7 +19,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	h := handler.NewHandler()
+	apiClient := jokes.NewJokeClient(cfg.JokeURL)
+
+	h := handler.NewHandler(apiClient)
 
 	r := chi.NewRouter()
 	r.Get("/hello", h.Hello)
