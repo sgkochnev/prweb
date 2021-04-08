@@ -34,7 +34,7 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: ./coverage.txt
-          fail_ci_if_error: false
+          fail_ci_if_error: no
 
   deploy:
     name: Deploy on Heroku
